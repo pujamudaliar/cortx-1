@@ -20,3 +20,5 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SOURCE_BRANCH: "main"
           TARGET_BRANCH: "stable"
+      - name: Test using echo command
+        run: echo "Sync PR created"
