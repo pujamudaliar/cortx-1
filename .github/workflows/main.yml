@@ -17,8 +17,14 @@ jobs:
       - name: Create Sync PR
         uses: sudoStatus200/create-sync-pr@0.3.1
         with:
+          pr_title: "Sync main and stable" # Title of pull request
+          pr_body: ":Sync: *An automated PR*"              # Full markdown support, requires pr_title to be set
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SOURCE_BRANCH: "main"
           TARGET_BRANCH: "stable"
       - name: Test using echo command
         run: echo "Sync PR created"
+      - name: output-number
+        run: echo ${{steps.open-pr.outputs.pr_number}}
+      - name: output-has-changed-files
+        run: echo ${{steps.open-pr.outputs.has_changed_files}}
