@@ -29,6 +29,7 @@ jobs:
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
 
+name: Checks required
 on:
   pull_request:
     paths:
