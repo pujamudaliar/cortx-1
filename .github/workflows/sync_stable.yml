@@ -33,6 +33,6 @@ name: Checks required
 on:
   pull_request:
     paths:
-      my-project: 'cortx-1/**'
+      - my-project: 'cortx-1/**'
     required-checks:
-      my-project: ['DCO']
+      - my-project: ['DCO']
