@@ -16,8 +16,8 @@ jobs:
           node-version: 12
       - name: Create Sync PR
         run: echo "Sync PR created"
-				uses: sudoStatus200/create-sync-pr@0.3.1
-				with:
+	uses: sudoStatus200/create-sync-pr@0.3.1
+	with:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           SOURCE_BRANCH: "main"
           TARGET_BRANCH: "stable"
