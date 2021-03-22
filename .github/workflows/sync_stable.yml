@@ -28,3 +28,8 @@ jobs:
       run: echo ${{steps.open-pr.outputs.pr_number}}
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
+    paths:
+      my-project: 'cortx-1/**'
+    required-checks:
+      my-project: ['DCO']
+      
