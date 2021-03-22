@@ -28,11 +28,9 @@ jobs:
       run: echo ${{steps.open-pr.outputs.pr_number}}
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
-
-name: Checks required
-on:
-  pull_request:
-  paths:
-    - my-project: 'cortx-1/**'
-  required-checks:
-    - my-project: ['DCO']
+    - name: Check DCO
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        pip3 install -U dco-check
+        dco-check
