@@ -22,15 +22,16 @@ jobs:
         pr_draft: true                                        # Creates pull request as draft
         pr_allow_empty: true                                  # Creates pull request even if there are no changes
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        paths:
-          my-project: 'cortx-1/**'
-        required-checks:
-          my-project: ['DCO']
     - name: output-url
       run: echo ${{steps.open-pr.outputs.pr_url}}
     - name: output-number
       run: echo ${{steps.open-pr.outputs.pr_number}}
     - name: output-has-changed-files
       run: echo ${{steps.open-pr.outputs.has_changed_files}}
-
-      
+  
+  on:
+    pull_request:
+      paths:
+        my-project: 'cortx-1/**'
+      required-checks:
+        my-project: ['DCO']
